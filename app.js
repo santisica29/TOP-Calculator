@@ -13,9 +13,10 @@ numButtons.forEach((n) => {
 })
 const operatorsButtons = document.querySelectorAll('.operator')
 operatorsButtons.forEach(ob => {
-  ob.addEventListener('click', calculate)
+  ob.addEventListener('click', storeFirstNumAndOperator)
 })
-document.querySelector('.equalBtn').addEventListener('click', equal)
+document.querySelector('.equalBtn').addEventListener('click', calculate)
+document.querySelector('.clear-btn').addEventListener('click', clear)
 
 function add(n1, n2) {
   return n1 + n2;
@@ -44,23 +45,30 @@ function operate(operator, n1, n2) {
 
 function showOperation(e) {
     let key = e.target.getAttribute('data-num')
-
     displayValue += key
     displayOperation.innerText = displayValue
 }
 
-function calculate(e) {
+function storeFirstNumAndOperator(e) {
   firstNumber = Number(displayValue);
   operator = e.target.getAttribute('data-operator')
   displayValue = ''
-  console.log(typeof firstNumber);
 }
 
-function equal() {
+function calculate() {
   secondNumber = Number(displayValue)
   let result = operate(operator, firstNumber, secondNumber);
-  displayOperation.innerText = result;
+  displayValue = result
+  displayOperation.innerText = displayValue;
+  // displayValue = ''
+}
+
+function clear(){
+  firstNumber = 0;
+  secondNumber = 0;
+  operator = null;
   displayValue = ''
+  displayOperation.innerText = 0
 }
 // function showNumber(e){
 //     let displayNum = document.querySelector('.num')
