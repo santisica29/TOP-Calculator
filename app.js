@@ -57,8 +57,13 @@ function calculate() {
 }
 
 function backtrack() {
-  lengthOfDisplayValue = displayValue.length;
-  displayValue = displayValue.substr(0, lengthOfDisplayValue - 1)
+  lengthOfDisplayValue = displayValue.toString().length;
+  if (lengthOfDisplayValue <= 1) {
+    displayValue = 0
+    displayOperation.innerText = displayValue
+    return 
+  }
+  displayValue = displayValue.toString().substr(0, lengthOfDisplayValue - 1)
   displayOperation.innerText = displayValue
 }
 // si despues de calcular con =
