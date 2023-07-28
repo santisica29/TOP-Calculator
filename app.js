@@ -2,6 +2,7 @@ let firstNumber;
 let operator = null;
 let secondNumber;
 let displayValue = '';
+let displayOp = document.querySelector('.operation')
 let displayOperation = document.querySelector('.display')
 const numButtons = document.querySelectorAll('.num')
 numButtons.forEach((n) => {
@@ -51,6 +52,7 @@ function calculate() {
   }
   displayValue = result
   displayOperation.innerText = displayValue;
+  displayOp.innerText = `${firstNumber} ${operator} ${secondNumber} = ${displayValue}`
   firstNumber = displayValue
   // displayValue = ''
   operator = null
@@ -76,6 +78,7 @@ function clear(){
   operator = null;
   displayValue = ''
   displayOperation.innerText = 0
+  displayOp.innerText = ''
 }
 
 
