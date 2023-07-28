@@ -107,11 +107,4 @@ function operate(operator, n1, n2) {
 function isDecimal(num) {
   return (num % 1)
 }
-// function showNumber(e){
-//     let displayNum = document.querySelector('.num')
-//     let num = e.target.getAttribute('data-key')
-//     displayNum.innerText += num
-//     displayValue = num
-//     console.log(displayValue);
-// }
 

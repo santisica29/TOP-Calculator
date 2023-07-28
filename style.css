@@ -43,7 +43,8 @@ body {
     border-radius: 10px;
 }
 
-.num:hover {
+.num:hover,
+.backtrack:hover {
     background: #292727;
 }
 
