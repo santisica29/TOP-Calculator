@@ -51,7 +51,7 @@ function calculate() {
   displayValue = result
   displayOperation.innerText = displayValue;
   firstNumber = displayValue
-  // displayValue = ''
+  displayValue = ''
   operator = null
 }
 
