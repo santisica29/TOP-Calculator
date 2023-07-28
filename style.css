@@ -12,7 +12,7 @@ body {
     color: whitesmoke;
     font-size: 2rem;
     padding: 1rem;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 .calculator-container div {
     border: 1px solid rgb(196, 170, 170);
@@ -22,15 +22,15 @@ body {
     height: 90px;
 }
 
-.screen .display {
+.screen {
     font-size: 3rem;
     height: 65%;
 }
 
-.screen .operation{
+/* .screen .operation{
     font-size: 1.2rem;
     height: 35%;
-}
+} */
 
 .keys {
     display: flex;
@@ -40,11 +40,11 @@ body {
 .keys div {
     width: 22%;
     flex-grow: 1;
-    cursor: pointer;
+    border-radius: 10px;
 }
 
-.keys div:hover {
-    background: #1a1919;
+.num:hover {
+    background: #292727;
 }
 
 .keys div.clear-btn {
@@ -57,4 +57,18 @@ body {
 
 .full-width{
     flex-basis: 74%;
+}
+
+.operator {
+    background-color: rgb(105, 154, 170);
+}
+.operator:hover {
+    background: rgb(64, 100, 112);
+}
+.equalBtn {
+    background-color: rgb(228, 154, 18);
+    cursor: pointer;
+}
+.equalBtn:hover{
+    background:rgb(196, 132, 14);
 }

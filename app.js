@@ -16,9 +16,7 @@ document.querySelector('.clear-btn').addEventListener('click', clear)
 
 function showOperation(e) {
     let key = e.target.getAttribute('data-num')
-    console.log(displayValue);
     displayValue += key
-    console.log(displayValue);
     displayOperation.innerText = displayValue
 }
 
@@ -39,13 +37,27 @@ function storeFirstNumAndOperator(e) {
 }
 
 function calculate() {
+  
+  if (firstNumber === undefined || operator === null) {
+    displayOperation.innerText = 'Error!'
+    clear()
+    return
+  }
   secondNumber = Number(displayValue)
   let result = operate(operator, firstNumber, secondNumber);
+  if (isDecimal(result)) {
+    result = result.toFixed(2)
+  }
   displayValue = result
   displayOperation.innerText = displayValue;
-  displayValue = ''
+  firstNumber = displayValue
+  // displayValue = ''
   operator = null
 }
+
+// si despues de calcular con =
+// apreto un operando, el displayV debe guardarse como primer num
+// apreto un num, el displayV debe borrarse y el numero debe ser asignado al displayV
 
 function clear(){
   firstNumber = 0;
@@ -55,12 +67,6 @@ function clear(){
   displayOperation.innerText = 0
 }
 
-// desp de elegir el primer num, un operando y el segundo num
-// si apreto otro operando tengo que:
-// hacer operacion con el primer num, operando y segundo num
-// mostrarla en el display
-// usar el resultado en el display como primer num
-// guardar el segundo operando
 
 function add(n1, n2) {
   return n1 + n2;
@@ -85,6 +91,9 @@ function operate(operator, n1, n2) {
     case "/":
       return divide(n1, n2);
   }
+}
+function isDecimal(num) {
+  return (num % 1)
 }
 // function showNumber(e){
 //     let displayNum = document.querySelector('.num')
