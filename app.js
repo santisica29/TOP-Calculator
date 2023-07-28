@@ -13,6 +13,7 @@ operatorsButtons.forEach(oBtn => {
 })
 document.querySelector('.equalBtn').addEventListener('click', calculate)
 document.querySelector('.clear-btn').addEventListener('click', clear)
+document.querySelector('.backtrack').addEventListener('click', backtrack)
 
 function showOperation(e) {
     let key = e.target.getAttribute('data-num')
@@ -55,6 +56,11 @@ function calculate() {
   operator = null
 }
 
+function backtrack() {
+  lengthOfDisplayValue = displayValue.length;
+  displayValue = displayValue.substr(0, lengthOfDisplayValue - 1)
+  displayOperation.innerText = displayValue
+}
 // si despues de calcular con =
 // apreto un operando, el displayV debe guardarse como primer num
 // apreto un num, el displayV debe borrarse y el numero debe ser asignado al displayV
